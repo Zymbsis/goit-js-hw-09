@@ -49,8 +49,6 @@ header {
   flex-direction: column;
 }
 
-.nav-link {}
-
 .gallery {
   max-width: 1440px;
   padding-left: 156px;
@@ -64,8 +62,6 @@ header {
 .gallery-item {
   width: calc((100% - (2 * 24px)) / 3);
 }
-
-.gallery-link {}
 
 .gallery-image {
   object-fit: cover;
