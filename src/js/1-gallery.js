@@ -1,8 +1,5 @@
-// Описаний в документації
 import SimpleLightbox from 'simplelightbox';
-// Додатковий імпорт стилів
 import 'simplelightbox/dist/simple-lightbox.min.css';
-console.log(SimpleLightbox);
 
 const images = [
   {
@@ -89,8 +86,9 @@ const arrayOfImages = images
 const gallery = document.querySelector('.gallery');
 gallery.insertAdjacentHTML('afterbegin', arrayOfImages);
 document
-  .querySelectorAll('.gallery-link')
-  .forEach(item => item.addEventListener('click', e => e.preventDefault()));
+  .querySelector('.gallery')
+  .addEventListener('click', e => e.preventDefault());
+
 const lightboxForGallery = new SimpleLightbox('.gallery-link', {
   captionsData: 'alt',
   captionDelay: 250,
@@ -98,8 +96,17 @@ const lightboxForGallery = new SimpleLightbox('.gallery-link', {
 });
 
 lightboxForGallery.on('shown.simplelightbox', () => {
-  document.querySelector('.simple-lightbox').style.backgroundColor =
-    'rgba(46, 47, 66, 0.80)';
-  document.querySelector('.sl-counter').style.color = '#fff';
-  document.querySelector('.sl-counter').style.fontFamily = 'Montserrat';
+  const overlay = document.querySelector('.sl-wrapper');
+  const counter = document.querySelector('.sl-counter');
+  const buttonClose = document.querySelector('.sl-close');
+  const arrowNavigation = document.querySelectorAll(
+    '.sl-wrapper .sl-navigation button'
+  );
+
+  overlay.style.backgroundColor = 'rgba(46, 47, 66, 0.8)';
+  counter.style.color = '#fff';
+  counter.style.fontFamily = 'Montserrat';
+  counter.style.top = '16px';
+  buttonClose.style.color = '#fff';
+  arrowNavigation.forEach(item => (item.style.color = '#fff'));
 });
