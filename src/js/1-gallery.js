@@ -77,6 +77,8 @@ const arrayOfImages = images
         class="gallery-image"
         src="${item.preview}"
         alt="${item.description}"
+        width="200"
+        height="360"
       />
     </a>
   </li>`
@@ -102,7 +104,6 @@ lightboxForGallery.on('shown.simplelightbox', () => {
   const arrowNavigation = document.querySelectorAll(
     '.sl-wrapper .sl-navigation button'
   );
-
   overlay.style.backgroundColor = 'rgba(46, 47, 66, 0.8)';
   counter.style.color = '#fff';
   counter.style.fontFamily = 'Montserrat';
