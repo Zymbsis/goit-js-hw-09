@@ -19,10 +19,12 @@ form.addEventListener('input', () =>
 );
 form.addEventListener('submit', e => {
   e.preventDefault();
-  console.log({
-    email: form.elements.email.value,
-    message: form.elements.message.value,
-  });
-  localStorage.removeItem(localStorageKey);
-  form.reset();
+  if (form.elements.email.value !== '' && form.elements.message.value !== '') {
+    console.log({
+      email: form.elements.email.value,
+      message: form.elements.message.value,
+    });
+    localStorage.removeItem(localStorageKey);
+    form.reset();
+  }
 });
