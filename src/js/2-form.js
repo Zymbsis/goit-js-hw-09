@@ -12,17 +12,17 @@ form.addEventListener('input', () =>
   localStorage.setItem(
     localStorageKey,
     JSON.stringify({
-      email: form.elements.email.value,
-      message: form.elements.message.value,
+      email: email.value,
+      message: message.value,
     })
   )
 );
 form.addEventListener('submit', e => {
   e.preventDefault();
-  if (form.elements.email.value !== '' && form.elements.message.value !== '') {
+  if (email.value !== '' && message.value !== '') {
     console.log({
-      email: form.elements.email.value,
-      message: form.elements.message.value,
+      email: email.value,
+      message: message.value,
     });
     localStorage.removeItem(localStorageKey);
     form.reset();
